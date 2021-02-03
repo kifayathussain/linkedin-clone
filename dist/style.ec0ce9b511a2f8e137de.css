@@ -1,0 +1,85 @@
+/* HEADER CSS START HERE  */
+header {
+    background-color: white;
+    border-bottom: solid 1px #bfb5b5c4;
+    height: 52px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    justify-content: center;
+    text-align: center;
+    width: 93%;
+    margin-left: 14px;
+  }
+  header .icon {
+    margin-top: 12px;
+    font-size: 22px;
+    letter-spacing: 20px;
+  }
+  header .icon:hover {
+    cursor: pointer;
+  }
+  section {
+    padding-top: 60px;
+  }
+  header .nav-input {
+    text-align: center;
+    height: 27px;
+    outline: none;
+    border: solid 1px #bfb5b5c4;
+    font-weight: 300;
+    width: 215px;
+    border-radius: 3px;
+    min-width: 125px;
+  }
+  .logo-div img {
+    width: 95px;
+  }
+  .nav-input {
+    margin-top: 11px;
+    background-color: #d4d4d429;
+  }
+  .input-div {
+    position: relative;
+    width: 100%;
+  }
+  .search-icon-div {
+    position: absolute;
+    top: 19px;
+    left: 74px;
+    font-size: 10px;
+    opacity: 0.5;
+  }
+  .profile-img {
+    width: 28px;
+    height: 25px;
+    border-radius: 50%;
+    margin-top: -7px;
+    vertical-align: middle;
+  }
+  /*============= Navbarmedia query */
+  
+  @media screen and (max-width: 960px) {
+    ul {
+      padding: 0;
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+    .input-div {
+      display: none;
+    }
+    header .icon {
+      font-size: 18px;
+      letter-spacing: 15px;
+    }
+  }
+  
+  /* HEADER CSS CLOSE HERE  */
+  

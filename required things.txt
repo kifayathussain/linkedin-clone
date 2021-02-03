@@ -1,0 +1,86 @@
+How to call a LinkedIn API and get a LinkedIn OAuth Access Token
+----
+
+Prerequisites:
+LinkedIn Account
+curl
+
+----
+
+Client Registration
+
+go to:
+https://www.linkedin.com/developers/apps
+
+click on "create new" or use this direct link:
+https://www.linkedin.com/developers/apps/new
+
+What you need:
+
+redirectURl = http://localhost:5050
+URLENCODE(redirectURl) = http%3A%2F%2Flocalhost%3A5050
+clinetId = 77mhy7cijrsier
+clinetSecret =407F4owrDa7Rz3FN
+
+
+----
+Authorization Endpoint (Browser)
+
+what you need:
+scope = r_liteprofile
+
+https://www.linkedin.com/oauth/v2/authorization?respo
+nse_type=code&state=987654321&scope=r_liteprofile&cli
+ent_id=77mhy7cijrsier&redirect_uri=http%3A%2F%2Flocalhost%3A5050
+
+
+what you need from response:
+code =AQTfL7x1VG2cveDZlva4DMAPH9VAxQZ3RGBx03JTnI6ZSUHmIpjqo3JspmvrkmmXEW-FIe49eotIowPLK7tv8PTpumfWK_SkBNoC_BrFB8HoG-eTFp40PUZzS4RQSv2okvQwpJYVDiUYhbmHpR2x9Baf88d6KSUWC7AYwHru4wE_uKVqYjCXtzy6l7N2lg
+
+------
+Token Endpoint:
+
+curl -ik -X POST https://www.linkedin.com/oauth/v2/accessToken \-d grant_type=authorization_code \-d code=AQTfL7x1VG2cveDZlva4DMAPH9VAxQZ3RGBx03JTnI6ZSUHmIpjqo3JspmvrkmmXEW-FIe49eotIowPLK7tv8PTpumfWK_SkBNoC_BrFB8HoG-eTFp40PUZzS4RQSv2okvQwpJYVDiUYhbmHpR2x9Baf88d6KSUWC7AYwHru4wE_uKVqYjCXtzy6l7N2lg \-d redirect_uri=http%3A%2F%2Flocalhost%3A5050 \-d client_id=77mhy7cijrsier \-d client_secret=407F4owrDa7Rz3FN
+
+
+
+{"access_token":"AQW0_nbqKKMS2TBPJEe9RvOcpQZIG-Qvf4ok0TCJjXfLpi_UCa9VwCC8Yoss2AD6IULFybuJ_6unBtfXz1oVJdc70Gr4P0SyChymp6WKfguiMS07Qa61E-nM0vlRqn3uQzpkLQdRmlnayciKv1ntyCS4rNcFG3kxr2mag5-6WD3k6BtMojvUE6s0mSWbRcP3-byMtBknQ2W1yu9oGVmafo-Ch_8DI6mnOYC9MneREBcZiccl4smvcJ4dcCQO1wCaH-OEfxvK8r_4F70QJjw0NJIFi2BmbORSR57kW-1cOuA-hYCiSx_6hT99MFpX6hy4yJ4CrxMU_i2W9u-KkqlUDpSVMWqWVw","expires_in":5183999}
+
+
+what you need from the response:
+access-token =AQW0_nbqKKMS2TBPJEe9RvOcpQZIG-Qvf4ok0TCJjXfLpi_UCa9VwCC8Yoss2AD6IULFybuJ_6unBtfXz1oVJdc70Gr4P0SyChymp6WKfguiMS07Qa61E-nM0vlRqn3uQzpkLQdRmlnayciKv1ntyCS4rNcFG3kxr2mag5-6WD3k6BtMojvUE6s0mSWbRcP3-byMtBknQ2W1yu9oGVmafo-Ch_8DI6mnOYC9MneREBcZiccl4smvcJ4dcCQO1wCaH-OEfxvK8r_4F70QJjw0NJIFi2BmbORSR57kW-1cOuA-hYCiSx_6hT99MFpX6hy4yJ4CrxMU_i2W9u-KkqlUDpSVMWqWVw
+------
+
+Resource Access:
+
+curl https://api.linkedin.com/v2/me -H"Authorization: Bearer AQW0_nbqKKMS2TBPJEe9RvOcpQZIG-Qvf4ok0TCJjXfLpi_UCa9VwCC8Yoss2AD6IULFybuJ_6unBtfXz1oVJdc70Gr4P0SyChymp6WKfguiMS07Qa61E-nM0vlRqn3uQzpkLQdRmlnayciKv1ntyCS4rNcFG3kxr2mag5-6WD3k6BtMojvUE6s0mSWbRcP3-byMtBknQ2W1yu9oGVmafo-Ch_8DI6mnOYC9MneREBcZiccl4smvcJ4dcCQO1wCaH-OEfxvK8r_4F70QJjw0NJIFi2BmbORSR57kW-1cOuA-hYCiSx_6hT99MFpX6hy4yJ4CrxMU_i2W9u-KkqlUDpSVMWqWVw"
+
+
+{
+   localizedLastName: "Hussain",
+   profilePicture: {
+     displayImage: "urn:li:digitalmediaAsset:C4D03AQFX5hdHPXBF6A",
+   },
+   firstName: {
+     localized: { en_US: "Kifayat" },
+     preferredLocale: { country: "US", language: "en" },
+   },
+   lastName: {
+     localized: { en_US: "Hussain" },
+     preferredLocale: { country: "US", language: "en" },
+   },
+   id: "9HUm5VokRm",
+   localizedFirstName: "Kifayat",
+ };
+
+what you need from the response:
+firstname =
+
+
+
+
+
+
+
+
+

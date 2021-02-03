@@ -1,0 +1,56 @@
+{
+  "linkedIn-App": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n",
+          "/*\n * We've enabled MiniCssExtractPlugin for you. This allows your app to\n * use css modules that will be moved into a separate CSS file instead of inside\n * one of your module entries!\n *\n * https://github.com/webpack-contrib/mini-css-extract-plugin\n *\n */",
+          "const MiniCssExtractPlugin = require('mini-css-extract-plugin');",
+          "\n",
+          "const WorkboxWebpackPlugin = require('workbox-webpack-plugin');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "plugins": [
+            "new webpack.ProgressPlugin()",
+            "new MiniCssExtractPlugin({ filename:'style.css.[contenthash].css' })",
+            "new WorkboxWebpackPlugin.GenerateSW({\n\t\t\t\tswDest: 'sw.js',\n\t\t\t\tclientsClaim: true,\n\t\t\t\tskipWaiting: false,\n\t\t\t})"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(js|jsx)$/",
+                "include": [
+                  "path.resolve(__dirname, 'src')"
+                ],
+                "loader": "'babel-loader'"
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "MiniCssExtractPlugin.loader"
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "devServer": {
+            "open": true,
+            "host": "'localhost'"
+          }
+        }
+      }
+    }
+  }
+}
