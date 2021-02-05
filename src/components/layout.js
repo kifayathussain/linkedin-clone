@@ -21,19 +21,20 @@ export const Layout = () => {
       return home()
       break;
     case "/messaging":
-      return linkdinAnimation();
+      return messaging();
       break;
     case "/myNetwork":
-      return linkdinAnimation();
+      return myNetwork();
       break;
     case "/profile":
-      return linkdinAnimation();
+      return profile();
       break;
     case "/job":
-      return linkdinAnimation();
+      return job();
       break;
     case "/notifications":
-      return linkdinAnimation();
+      return notifications
+      ();
       break;
     case "/work":
       return linkdinAnimation();
